@@ -1,4 +1,4 @@
-package ru.task5.operations;
+package ru.task5.operations.SettlementInstance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -30,6 +30,7 @@ public class SaveTppProduct implements OperationProduct{
         tppProduct.setNso(model.getMinimalBalance());
         tppProductRepo.save(tppProduct);
 
+        model.setInstanceId(tppProduct.getId());
         resultModel.setInstanceId(String.valueOf(tppProduct.getId()));
         return resultModel;
     }

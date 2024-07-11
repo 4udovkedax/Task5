@@ -1,4 +1,4 @@
-package ru.task5.operations;
+package ru.task5.operations.SettlementInstance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;

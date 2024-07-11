@@ -8,8 +8,7 @@ import java.util.List;
 
 @Setter
 @Getter
-public class ResultModel {
-    private String instanceId;
+public class ResultModel extends ResModel{
     private List<String> registerId = new ArrayList<>();
     private List<String> supplementaryAgreementId = new ArrayList<>();
 }

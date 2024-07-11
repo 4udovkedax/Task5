@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.task5.model.ResultModel;
 import ru.task5.model.SettlementInstanceModel;
-import ru.task5.operations.OperationAgreement;
-import ru.task5.operations.OperationProduct;
+import ru.task5.operations.SettlementInstance.OperationAgreement;
+import ru.task5.operations.SettlementInstance.OperationProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,6 @@ public class SettlementInstanceService {
     private List<OperationProduct> operProducts = new ArrayList<>();
     private List<OperationAgreement> operAgreements = new ArrayList<>();
     @Getter
-    @Setter
     private ResultModel resultModel = new ResultModel();
 
     public SettlementInstanceService(List<OperationProduct> operProducts, List<OperationAgreement> operAgreements) {

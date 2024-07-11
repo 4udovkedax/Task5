@@ -1,4 +1,4 @@
-package ru.task5.operations;
+package ru.task5.operations.SettlementInstance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -48,6 +48,7 @@ public class FoundProductRegistry implements OperationProduct{
         tppRefProductRegisterType.setTppRefAccountType(tppRefAccountTypeOptional.get());
         Example<TppRefProductRegisterType> exampleType = Example.of(tppRefProductRegisterType);
         model.setRefProductRegisterTypes(tppRefProductRegisterTypeRepo.findAll(exampleType));
+
         return resultModel;
     }
 }

@@ -1,6 +1,5 @@
 package ru.task5.controllers;
 
-import jakarta.ws.rs.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -32,5 +31,16 @@ public class ExceptionController {
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<String> handleException(NullPointerException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleException(RuntimeException e) {
+        String message = "ERROR: " + e.getMessage() + "\n";
+        for (StackTraceElement s : e.getStackTrace()) {
+            if (s.getClassName().startsWith("ru.task5")) {
+                message += s.getClassName() + " method: " + s.getMethodName() + "\n";
+            }
+        }
+        return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
