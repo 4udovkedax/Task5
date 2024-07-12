@@ -39,7 +39,7 @@ public class FoundDoubeProductRegistry implements OperationAccount{
         Optional<TppProductRegister> tppProductOptional = tppProductRegisterRepo.findOne(exampleProduct);
 
         if (!tppProductOptional.isEmpty()) {
-            throw new IllegalArgumentException("Параметр registryTypeCode тип регистра <" + model.getRegistryTypeCode() + "> уже существует для ЭП с ИД  <" + tppProductOptional.get() + ">");
+            throw new IllegalArgumentException("Параметр registryTypeCode тип регистра <" + model.getRegistryTypeCode() + "> уже существует для ЭП с ИД  <" + tppProductOptional.get().getId() + ">");
         }
 
         model.setTppRefProductRegisterType(tppProductRegisterTypeOptional.get());
